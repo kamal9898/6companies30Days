@@ -1,0 +1,25 @@
+
+string encode(string src)
+{     
+  //Your code here
+  
+   string k ="";
+   int g =1;
+   
+   for(int i =0; i< src.length(); i++)
+   {
+       k += src[i];
+       
+       while(src[i] == src[i+1] && (i+1) < src.length())
+       {
+           g++;
+           i++;
+       }
+       
+       
+       k += to_string(g);
+       g=1;
+   }
+   
+   return k;
+}  
