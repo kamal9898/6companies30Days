@@ -1,0 +1,30 @@
+class Solution{
+public:	
+	// #define ull unsigned long long
+	/* Function to get the nth ugly number*/
+	ull getNthUglyNo(int n) {
+	    // code here
+	    vector<long long int> pg(n+1);
+	    
+	    pg[0] =1;
+	    
+	    long long int c2(0),c3(0),c5(0);
+	    
+	    for(int i =1; i<= n; i++)
+	    {
+	        pg[i] = min({2*pg[c2],3*pg[c3], 5*pg[c5]});
+	        
+	        if(2*pg[c2] == pg[i])
+	         c2++;
+	        
+	         if(3*pg[c3] == pg[i])
+	          c3++;
+	        
+	         if(5*pg[c5] == pg[i])
+	          c5++;
+	    }
+	    
+	    return pg[n-1];
+	    
+	}
+};
